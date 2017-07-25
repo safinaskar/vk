@@ -2,10 +2,10 @@
 
 GEN_HEADER = grep '//@' $^ | sed 's~ *//@\( \|\)~~' > $@ || { rm -f $@; exit 1; }
 
-all: libvk.h
+all: libvk.hpp
 
 dev-clean:
-	rm -f libvk.h
+	rm -f libvk.hpp
 
-libvk.h: libvk.cpp
+libvk.hpp: libvk.cpp
 	$(GEN_HEADER)
