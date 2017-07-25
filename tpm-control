@@ -6,5 +6,5 @@ BUILD_DEPENDS='prog:cmake:cmake prog:make:make prog:c++:g++ prog:grep:grep prog:
 LIBS='libc:6 libstdc++:6:libstdc++-6-dev libcurl:3 libjson-c:3:libjson-c-dev'
 
 INSTALL='[ -e CMakeCache.txt ] && echo "Failed: CMakeCache.txt" && exit 1;'\
-'./dev.mk &&'
+'./dev.mk &&'\
 'cd "$BUILD" && cmake -DCMAKE_INSTALL_PREFIX="$PREFIX" "$SRC" && make install'
