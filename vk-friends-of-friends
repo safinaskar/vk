@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Выдаёт также просто друзей. Ответ может как содержать, так и не содержать сам ID
+
+set -e
+
+if [ $# -gt 1 ] || [ "$1" = "--help" ]; then
+	echo "Usage: ${0##*/} [ID]"
+	exit 0
+fi
+
+vk-friends "$@" > /tmp/vk-friends-of-friends
+
+{
+	cat /tmp/vk-friends-of-friends
+
+	while read -r ID ETC; do
+		printf '%s' "$ID $ETC... " >&2
+		vk-friends --force "$ID"
+		printf 'OK\n' >&2
+	done < /tmp/vk-friends-of-friends
+} | sort --general-numeric-sort --unique
+
+rm /tmp/vk-friends-of-friends

@@ -1,0 +1,11 @@
+.*.kate-swp
+
+*.o
+
+/vk-request
+/vk-player
+/vk-friends
+/vk-download-audio
+/vk-download-messages
+/vk-messages2gfm
+/vk-wall
