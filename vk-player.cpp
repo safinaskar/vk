@@ -7,7 +7,7 @@
 #include <libsh.h>
 
 #include <libsh/cxx.hpp>
-#include <libvk.hpp>
+#include "libvk.hpp"
 
 using namespace std::literals;
 
